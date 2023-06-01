@@ -1,17 +1,28 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const complements = new Set();
+
+  for (let num of array) {
+    const complement = target - num;
+
+    if (complements.has(complement)) {
+      return true;
+    }
+    complements.add(num);
+  }
+  return false;
 }
 
 /* 
-  Write the Big O time complexity of your function here
+  O(n)
 */
 
 /* 
-  Add your pseudocode here
+psuedo-code
 */
 
 /*
-  Add written explanation of your solution here
+ For each number in the array, it calculates the complement (target minus the current number) and checks if the complement exists in the set. 
+ If it does, it returns true. Otherwise, it returns false.
 */
 
 // You can run `node index.js` to view these console logs
